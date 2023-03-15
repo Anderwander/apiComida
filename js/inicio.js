@@ -6,7 +6,6 @@ function createBaseUrl() {
   url.searchParams.set("health", "vegan");
   url.searchParams.set("cuisineType", "japanese");
   url.searchParams.set("random", "true");
-  url.searchParams.set("limit", "5");
   return url;
 }
 
@@ -71,7 +70,8 @@ async function renderRecipe(url, nombre) {
     recipeImage.onload = function () {
       recipeArticle.style.display = "block";
     };
-
+    let totalRecipe = document.createElement("a");
+    totalRecipe.setAttribute("href", "recipes.html?id=" + hit.id);
     recipeArticle.classList.add("recipe");
     recipeName.innerText = hit.name
       .replace(/\srecipe[s]?/gim, "")
@@ -80,7 +80,8 @@ async function renderRecipe(url, nombre) {
 
     food.appendChild(recipeArticle);
     recipeArticle.appendChild(recipeName);
-    recipeArticle.appendChild(recipeImage);
+    totalRecipe.appendChild(recipeImage);
+    recipeArticle.appendChild(totalRecipe);
   });
 }
 
