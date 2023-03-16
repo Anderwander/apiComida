@@ -43,7 +43,6 @@ async function getRecipes(url) {
             name: hit.recipe.label,
             image: hit.recipe.image,
             id: hit.recipe.uri.split("_")[1],
-            //ingredients: hit.recipe.ingredients,
           };
         })
         .slice(0, 10);
@@ -79,17 +78,15 @@ async function renderRecipe(url, nombre) {
     recipeImage.setAttribute("src", hit.image);
 
     food.appendChild(recipeArticle);
-    recipeArticle.appendChild(recipeName);
-    recipeArticle.appendChild(recipeLink);
     recipeLink.appendChild(recipeImage);
+    recipeArticle.appendChild(recipeLink);
+    recipeArticle.appendChild(recipeName);
   });
 }
 
-async function menu() {
+export async function menu() {
   await showStarter();
   await showMain();
   await showDrinks();
   await showDessert();
 }
-
-menu();

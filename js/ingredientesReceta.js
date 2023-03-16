@@ -1,3 +1,10 @@
+import {
+  getRecipes as menuGetRecipes,
+  addRecipe as menuAddRecipe,
+  deleteRecipe as menuDeleteRecipe,
+  deleteMenu,
+} from "./menuSaver.js";
+
 function createBaseUrl() {
   let params = new URL(document.location).searchParams;
   let id = params.get("id");
@@ -12,7 +19,6 @@ async function getRecipes(url) {
   let recipes = await fetch(url.toString())
     .then((response) => response.json())
     .then((hit) => {
-      console.log(hit);
       return {
         name: hit.recipe.label,
         image: hit.recipe.image,
@@ -21,8 +27,6 @@ async function getRecipes(url) {
         cautions: hit.recipe.cautions,
       };
     });
-
-  console.log(recipes);
   return recipes;
 }
 
@@ -38,6 +42,7 @@ async function renderRecipe(url) {
   const recipeImage = document.createElement("img");
   const ingredientList = document.createElement("ul");
   const cautionList = document.createElement("ul");
+  const guardar = document.createElement("button");
 
   recipeArticle.classList.add("recipe");
   title.innerText = recipe.name
@@ -46,6 +51,12 @@ async function renderRecipe(url) {
   recipeImage.setAttribute("src", recipe.image);
   recipeIngredients.setAttribute("id", "ingredients");
   recipeCautions.setAttribute("id", "cautions");
+  guardar.setAttribute("id", "botonGuardar");
+  guardar.innerText = "Añadir";
+  guardar.addEventListener("click", () => {
+    console.log(recipe);
+    menuAddRecipe(recipe);
+  });
 
   recipe.ingredients.forEach((element) => {
     let ingredient = document.createElement("li");
@@ -63,6 +74,7 @@ async function renderRecipe(url) {
   results.appendChild(recipeArticle);
   recipeArticle.appendChild(title);
   recipeArticle.appendChild(recipeImage);
+  recipeArticle.appendChild(guardar);
   recipeIngredients.appendChild(ingredientList);
   recipeCautions.appendChild(cautionList);
   results.appendChild(recipeIngredients);
@@ -71,9 +83,4 @@ async function renderRecipe(url) {
 
 let url = createBaseUrl();
 
-/* async function resultRecipe() {
-  await renderRecipe(url);
-}
-
-resultRecipe(); */
 renderRecipe(url);
