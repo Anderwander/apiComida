@@ -5,24 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shojin Senshi 精進戦士</title>
-    <link rel="stylsheet" src="css/reset.css" />
-    <link rel="stylsheet" src="css/style.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header class="header">
-      <a href="index.html" class="botonInicio">Shojin Senshi 精進戦士</a>
-      <nav class="navbar">
-        <a href="index.html" class="active">Inicio</a>
-        <a href="">Menu</a>
-        <a href="">Zazen</a>
-        <a href="">Contacto</a>
-      </nav>
+    <header>
+      <ul class="navbar">
+        <li class="active" id="botonInicio">
+          <a href="#">Shojin Senshi 精進戦士</a>
+        </li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Música Zen</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
     </header>
-    <h1>Shojin Senshi 精進戦士</h1>
+    <!-- <h1>Shojin Senshi 精進戦士</h1> -->
     <section id="menu">
       <h1>Menu</h1>
       <section id="results"></section>
     </section>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script type="text/javascript">
+      $(document).on("click", "ul li", function () {
+        $(this).addClass("active").siblings().removeClass("active");
+      });
+    </script>
+
     <script src="js/inicio.js"></script>
   </body>
 </html>

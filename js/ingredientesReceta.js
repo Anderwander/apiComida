@@ -33,8 +33,10 @@ async function renderRecipe(url) {
   const results = document.getElementById("recipeResult");
   const title = document.createElement("h1"); //esto quiero que sea el nombre de la receta: "Receta de "+nombre;
   const recipeArticle = document.createElement("article");
+  const recipeIngredients = document.createElement("article");
+  const recipeCautions = document.createElement("article");
   const recipeImage = document.createElement("img");
-  const lista = document.createElement("ul");
+  const ingredientList = document.createElement("ul");
   const cautionList = document.createElement("ul");
 
   recipeArticle.classList.add("recipe");
@@ -42,16 +44,18 @@ async function renderRecipe(url) {
     .replace(/\srecipe[s]?/gim, "")
     .replace(/,[s]*/g, ", ");
   recipeImage.setAttribute("src", recipe.image);
+  recipeIngredients.setAttribute("id", "ingredients");
+  recipeCautions.setAttribute("id", "cautions");
 
   recipe.ingredients.forEach((element) => {
     let ingredient = document.createElement("li");
     ingredient.innerText = element.replace("*", "");
-    lista.appendChild(ingredient);
+    ingredientList.appendChild(ingredient);
   });
 
   recipe.cautions.forEach((element) => {
     let caution = document.createElement("li");
-    caution.innerText = element;
+    caution.innerText = element.toUpperCase();
     cautionList.appendChild(caution);
   });
 
@@ -59,8 +63,10 @@ async function renderRecipe(url) {
   results.appendChild(recipeArticle);
   recipeArticle.appendChild(title);
   recipeArticle.appendChild(recipeImage);
-  recipeArticle.appendChild(lista);
-  recipeArticle.appendChild(cautionList);
+  recipeIngredients.appendChild(ingredientList);
+  recipeCautions.appendChild(cautionList);
+  results.appendChild(recipeIngredients);
+  results.appendChild(recipeCautions);
 }
 
 let url = createBaseUrl();

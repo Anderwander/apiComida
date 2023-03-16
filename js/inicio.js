@@ -70,8 +70,8 @@ async function renderRecipe(url, nombre) {
     recipeImage.onload = function () {
       recipeArticle.style.display = "block";
     };
-    let totalRecipe = document.createElement("a");
-    totalRecipe.setAttribute("href", "recipes.html?id=" + hit.id);
+    let recipeLink = document.createElement("a");
+    recipeLink.setAttribute("href", "recipes.html?id=" + hit.id);
     recipeArticle.classList.add("recipe");
     recipeName.innerText = hit.name
       .replace(/\srecipe[s]?/gim, "")
@@ -80,8 +80,8 @@ async function renderRecipe(url, nombre) {
 
     food.appendChild(recipeArticle);
     recipeArticle.appendChild(recipeName);
-    totalRecipe.appendChild(recipeImage);
-    recipeArticle.appendChild(totalRecipe);
+    recipeArticle.appendChild(recipeLink);
+    recipeLink.appendChild(recipeImage);
   });
 }
 
