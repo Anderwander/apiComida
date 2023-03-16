@@ -17,7 +17,6 @@ export function addRecipe(recipe) {
     return;
   }
   recipes.push(recipe);
-  console.log(recipes);
   saveRecipes(recipes);
 }
 

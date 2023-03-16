@@ -69,6 +69,7 @@ async function renderRecipe(url, nombre) {
     recipeImage.onload = function () {
       recipeArticle.style.display = "block";
     };
+
     let recipeLink = document.createElement("a");
     recipeLink.setAttribute("href", "recipes.html?id=" + hit.id);
     recipeArticle.classList.add("recipe");
@@ -84,9 +85,23 @@ async function renderRecipe(url, nombre) {
   });
 }
 
+function loading() {
+  const loadImage = document.getElementById("loading");
+  let logoLoading = document.createElement("img");
+  logoLoading.setAttribute("src", "../media/yinYang.gif");
+  loadImage.appendChild(logoLoading);
+}
+
+function loaded() {
+  const endImage = document.getElementById("loading");
+  endImage.remove();
+}
+
 export async function menu() {
+  loading();
   await showStarter();
   await showMain();
   await showDrinks();
   await showDessert();
+  loaded();
 }

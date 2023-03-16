@@ -19,6 +19,7 @@ async function getRecipes(url) {
   let recipes = await fetch(url.toString())
     .then((response) => response.json())
     .then((hit) => {
+      console.log(hit);
       return {
         name: hit.recipe.label,
         image: hit.recipe.image,
@@ -30,11 +31,18 @@ async function getRecipes(url) {
   return recipes;
 }
 
-async function renderRecipe(url) {
-  const recipe = await getRecipes(url);
-  console.log(recipe);
+export async function cardResult() {
+  let url = createBaseUrl();
+  let recipeSection = document.getElementById("recipeResult");
+  recipeSection.innerHTML = "";
+  let recipe = await getRecipes(url.href);
+  renderRecipe(recipe);
+}
 
+async function renderRecipe(recipe) {
   const results = document.getElementById("recipeResult");
+  const resultModal = document.getElementById("modalObjects");
+
   const title = document.createElement("h1"); //esto quiero que sea el nombre de la receta: "Receta de "+nombre;
   const recipeArticle = document.createElement("article");
   const recipeIngredients = document.createElement("article");
@@ -43,6 +51,16 @@ async function renderRecipe(url) {
   const ingredientList = document.createElement("ul");
   const cautionList = document.createElement("ul");
   const guardar = document.createElement("button");
+  const borrar = document.createElement("button");
+
+
+  recipeArticle.id = recipe.id;
+  recipeArticle.setAttribute("data-name", recipe.name);
+  recipeArticle.setAttribute("data-image", recipe.image);
+  recipeArticle.setAttribute(
+    "data-ingredients",
+    JSON.stringify(recipe.ingredients)
+  );
 
   recipeArticle.classList.add("recipe");
   title.innerText = recipe.name
@@ -52,10 +70,14 @@ async function renderRecipe(url) {
   recipeIngredients.setAttribute("id", "ingredients");
   recipeCautions.setAttribute("id", "cautions");
   guardar.setAttribute("id", "botonGuardar");
+  borrar.setAttribute("id", "botonBorrar");
   guardar.innerText = "Añadir";
+  borrar.innerText = "Quitar del pedido";
   guardar.addEventListener("click", () => {
-    console.log(recipe);
     menuAddRecipe(recipe);
+  });
+  borrar.addEventListener("click", () => {
+    menuDeleteRecipe(recipe);
   });
 
   recipe.ingredients.forEach((element) => {
@@ -70,17 +92,17 @@ async function renderRecipe(url) {
     cautionList.appendChild(caution);
   });
 
-  results.appendChild(title);
+  const titleModal = title.cloneNode(true);
+  const imageModal = recipeImage.cloneNode(true);
+  resultModal.appendChild(titleModal);
+  resultModal.appendChild(imageModal);
   results.appendChild(recipeArticle);
   recipeArticle.appendChild(title);
   recipeArticle.appendChild(recipeImage);
-  recipeArticle.appendChild(guardar);
+  resultModal.appendChild(guardar);
+  resultModal.appendChild(borrar);
   recipeIngredients.appendChild(ingredientList);
   recipeCautions.appendChild(cautionList);
   results.appendChild(recipeIngredients);
   results.appendChild(recipeCautions);
 }
-
-let url = createBaseUrl();
-
-renderRecipe(url);
