@@ -32,7 +32,7 @@ export function deleteRecipe(recipe) {
     return;
   }
   recipes.splice(index, 1);
-  saveRecipes();
+  saveRecipes(recipes);
 }
 
 export function deleteMenu() {

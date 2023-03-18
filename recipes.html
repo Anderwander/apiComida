@@ -8,9 +8,19 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/modal.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@100;300&display=swap");
+    </style>
   </head>
   <body>
-    <header></header>
+    <header>
+      <ul class="navbar">
+        <li class="active"></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="#">Música Zen</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </header>
     <a href="index.html">
       <p id="home">Shojin Senshi 精進戦士</p>
     </a>
@@ -24,7 +34,7 @@
     </div>
     <section id="recipeResult"></section>
     <button id="myBtn">Añadir al carrito</button>
-
+    <aside id="sectionAside"></aside>
     <script type="module" src="js/pedido.js"></script>
     <script>
       // Get the modal

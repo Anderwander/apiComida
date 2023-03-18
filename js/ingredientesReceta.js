@@ -4,6 +4,7 @@ import {
   deleteRecipe as menuDeleteRecipe,
   deleteMenu,
 } from "./menuSaver.js";
+import { pedido } from "./carrito.js";
 
 function createBaseUrl() {
   let params = new URL(document.location).searchParams;
@@ -53,7 +54,6 @@ async function renderRecipe(recipe) {
   const guardar = document.createElement("button");
   const borrar = document.createElement("button");
 
-
   recipeArticle.id = recipe.id;
   recipeArticle.setAttribute("data-name", recipe.name);
   recipeArticle.setAttribute("data-image", recipe.image);
@@ -75,9 +75,13 @@ async function renderRecipe(recipe) {
   borrar.innerText = "Quitar del pedido";
   guardar.addEventListener("click", () => {
     menuAddRecipe(recipe);
+    pedido();
+    document.getElementById("modal").style.display = "none";
   });
   borrar.addEventListener("click", () => {
     menuDeleteRecipe(recipe);
+    pedido();
+    document.getElementById("modal").style.display = "none";
   });
 
   recipe.ingredients.forEach((element) => {

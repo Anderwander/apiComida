@@ -47,7 +47,6 @@ async function getRecipes(url) {
         })
         .slice(0, 10);
     });
-  console.log(recipes);
   return recipes;
 }
 
