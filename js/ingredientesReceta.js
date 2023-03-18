@@ -39,11 +39,34 @@ export async function cardResult() {
   let recipe = await getRecipes(url.href);
   renderRecipe(recipe);
 }
+function renderRecipeButtons(cautionList, ingredientList) {
+  const botonesReceta = document.createElement("div");
+  const ingredientsBoton = document.createElement("button");
+  const cautionsBoton = document.createElement("button");
 
-async function renderRecipe(recipe) {
+  botonesReceta.setAttribute("class", "buttonContainer");
+
+  ingredientsBoton.setAttribute("class", "fa-solid fa-angle-down");
+  ingredientsBoton.addEventListener("click", () => {
+    ingredientList.classList.toggle("hidden");
+  });
+  ingredientsBoton.innerText = "Ingredientes";
+
+  cautionsBoton.setAttribute("class", "fa-solid fa-angle-down");
+  cautionsBoton.addEventListener("click", () => {
+    cautionList.classList.toggle("hidden");
+  });
+  cautionsBoton.innerText = "Alergias";
+
+  botonesReceta.appendChild(ingredientsBoton);
+  botonesReceta.appendChild(cautionsBoton);
+
+  return botonesReceta;
+}
+
+function renderRecipe(recipe) {
   const results = document.getElementById("recipeResult");
   const resultModal = document.getElementById("modalObjects");
-
   const title = document.createElement("h1"); //esto quiero que sea el nombre de la receta: "Receta de "+nombre;
   const recipeArticle = document.createElement("article");
   const recipeIngredients = document.createElement("article");
@@ -53,6 +76,8 @@ async function renderRecipe(recipe) {
   const cautionList = document.createElement("ul");
   const guardar = document.createElement("button");
   const borrar = document.createElement("button");
+
+  ingredientList.classList.add("hidden");
 
   recipeArticle.id = recipe.id;
   recipeArticle.setAttribute("data-name", recipe.name);
@@ -68,6 +93,7 @@ async function renderRecipe(recipe) {
     .replace(/,[s]*/g, ", ");
   recipeImage.setAttribute("src", recipe.image);
   recipeIngredients.setAttribute("id", "ingredients");
+  recipeArticle.setAttribute("class", "recipeCard");
   recipeCautions.setAttribute("id", "cautions");
   guardar.setAttribute("id", "botonGuardar");
   borrar.setAttribute("id", "botonBorrar");
@@ -103,6 +129,9 @@ async function renderRecipe(recipe) {
   results.appendChild(recipeArticle);
   recipeArticle.appendChild(title);
   recipeArticle.appendChild(recipeImage);
+
+  const botonesReceta = renderRecipeButtons(cautionList, ingredientList);
+  recipeArticle.appendChild(botonesReceta);
   resultModal.appendChild(guardar);
   resultModal.appendChild(borrar);
   recipeIngredients.appendChild(ingredientList);
