@@ -1,0 +1,428 @@
+body {
+  font-family: "Poppins", sans-serif;
+  padding: 32px;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+#bodyIndex {
+  padding: 32px;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-image: url(../media/luxa.org-opacity-changed-matcha.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+}
+
+#bodyId {
+  padding: 32px;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-image: url(../media/luxa.org-opacity-changed-backgroundFoto.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+}
+
+#bodyMenu {
+  padding: 32px;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-image: url(../media/luxa.org-opacity-changed-peacefulcuisine.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+}
+
+#bodyReserva {
+  padding: 32px;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-image: url(../media/luxa.org-opacity-changed-reserva.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+}
+
+header {
+  margin-left: 160px;
+  position: fixed;
+  gap: 580px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 256px;
+}
+
+.hidden {
+  display: none;
+}
+
+#titulo {
+  font-family: "Poppins", sans-serif;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 32px;
+  font-size: 3em;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  color: white;
+  text-align: left;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+#titulo2 {
+  font-family: "Poppins", sans-serif;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 32px;
+  font-size: 3em;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  color: white;
+  text-align: left;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+#titulo3 {
+  font-family: "Poppins", sans-serif;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 32px;
+  font-size: 3em;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  color: white;
+  text-align: left;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+.navbar {
+  padding-left: 60px;
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  overflow: hidden;
+  background-color: transparent;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: flex-start;
+  text-transform: uppercase;
+  font-size: 1.4em;
+  font-weight: 200;
+}
+
+.navbar2 {
+  width: 100%;
+  overflow: hidden;
+  gap: 125px;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.navbar2 li {
+  padding: 12px;
+  font-size: 2em;
+  font-weight: 200;
+  transition: 1s;
+}
+a {
+  color: white;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.navbar li {
+  padding: 12px;
+  float: left;
+  transition: 1s;
+}
+.navbar li:hover,
+.navbar2 li:hover {
+  scale: 125%;
+}
+
+.navbar li a {
+  display: block;
+  color: #333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#menuId {
+  width: 100%;
+}
+
+#results {
+  margin-right: 24px;
+  padding: 24px;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+#results h1 {
+  margin-bottom: 24px;
+  font-size: 1.8em;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+#results h2 {
+  margin-bottom: 24px;
+  font-size: 1.5em;
+  font-weight: 200;
+}
+
+.recipe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+#recipeResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipeCard {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.recipeCard > h1 {
+  color: white;
+  font-size: xx-large;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+.recipeCard > img {
+  width: 400px;
+  height: 400px;
+}
+
+.buttonContainer {
+  gap: 240px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.buttonContainer button {
+  font-family: "Poppins", sans-serif;
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  color: white;
+  font-size: large;
+  font-weight: 200;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.ingAndCautBotons {
+  color: white;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: row;
+  gap: 120px;
+  margin-left: 48px;
+}
+
+#ingredientList li {
+  margin-bottom: 16px;
+}
+#caution li {
+  margin-bottom: 16px;
+}
+
+#sectionFood {
+  gap: 30px;
+  height: 300px;
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  overflow-x: auto;
+}
+
+img {
+  border-radius: 5px;
+  width: 200px;
+  height: 200px;
+}
+
+#loading {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  opacity: 0.5;
+}
+
+.plateJoder {
+  font-size: x-large;
+  text-transform: uppercase;
+  color: white;
+  display: flex;
+  gap: 150px;
+  justify-content: space-between;
+}
+
+.plateJoder:not(:last-child) {
+  margin-bottom: 40px;
+}
+.deleteButon {
+  border-radius: 8px;
+  background-color: rgba(241, 130, 130, 0.622);
+  border: none;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 450px) {
+  #titulo {
+    width: 100%;
+    padding: 60px;
+    padding-right: 45px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  .navbar2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    margin-top: 16px;
+    margin-bottom: 0px;
+  }
+  .navbar2 li {
+    padding: 12px;
+    font-size: 1.1em;
+    font-weight: 200;
+    transition: 1s;
+  }
+  .navbar {
+    align-items: center;
+    margin-right: 35px;
+  }
+  header {
+    margin-left: 70px;
+    margin-top: 0px;
+    margin-right: 48px;
+    gap: 0px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+  }
+  #titulo2 {
+    width: 65%;
+    padding: 60px;
+    padding-right: 45px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 12px;
+  }
+  #titulo3 {
+    width: 100%;
+    padding-right: 50px;
+    margin-right: -370px;
+  }
+
+  #results {
+    width: 100%;
+    margin-right: 0px;
+  }
+  /*  #recipeResults {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+
+  .recipeCard {
+    margin-top: 24px;
+  }
+  .recipeCard > h1 {
+    width: 270px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .recipeCard > img {
+    width: 270px;
+    height: 270px;
+  }
+
+  .buttonContainer {
+    gap: 65px;
+  }
+  .buttonContainer button {
+    font-family: "Poppins", sans-serif;
+    background-color: transparent;
+    border: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: large;
+    font-weight: 200;
+    cursor: pointer;
+    margin-bottom: 50px;
+  }
+
+  .ingAndCautBotons {
+    margin-left: 12px;
+  }
+
+  #sectionAside ul > li {
+    margin-top: 36px;
+  }
+
+  .plateJoder {
+    gap: 60px;
+  }
+}

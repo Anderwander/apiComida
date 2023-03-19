@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0"
+    />
+    <title>Reserva</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="./css/form.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@100;300&display=swap");
+    </style>
+  </head>
+  <body id="bodyReserva">
+    <h1>
+      <!-- id:"titulo" -->
+      <a href="index.html" id="titulo">Shojin Senshi 精進戦士 </a>
+    </h1>
+    <nav>
+      <ul class="navbar2">
+        <li class="active"><a href="menu.html">Menú</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="reserva.html">Reservas</a></li>
+      </ul>
+    </nav>
+    <form class="formReserva">
+      <h4>Solicita tu reserva</h4>
+      <input
+        class="param"
+        type="text"
+        name="nombre"
+        id="formName "
+        placeholder="Nombre y apellidos. "
+      />
+      <input
+        class="param"
+        type="number"
+        name="number"
+        id="formNumber"
+        placeholder="Ingrese su télefono. "
+      />
+      <input
+        class="param"
+        type="text"
+        name="e-mail"
+        id="formMail"
+        placeholder="Ingrese su e-mail. "
+      />
+      <textarea
+        class="formArea"
+        name="peticiones"
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="Coméntanos si tienes alguna petición."
+      ></textarea>
+      <p>Estoy muy en contra de los <a href="#">Términos y Condiciones.</a></p>
+      <input class="formSubmit" type="submit" value="Reservar" id="" />
+    </form>
+  </body>
+</html>
