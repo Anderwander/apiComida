@@ -3,32 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0"
+    />
     <title>Shojin Senshi 精進戦士</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@100;300&display=swap");
     </style>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <body id="bodyIndex">
     <header>
-      <section>
+      <h1>
         <!-- id="menu" -->
-        <a href="#" id="titulo">Shojin Senshi 精進戦士</a>
-      </section>
+        <a href="#" id="titulo3">Shojin Senshi 精進戦士</a>
+      </h1>
       <ul class="navbar">
-        <li class="active"><a href="menu.html">Menú</a></li>
-        <li><a href="#">Música Zen</a></li>
-        <li><a href="#">Reservas</a></li>
+        <li><a href="menu.html">Menú</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="reserva.html">Reservas</a></li>
       </ul>
     </header>
-    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-    <script type="text/javascript">
-      $(document).on("click", "ul li", function () {
-        $(this).addClass("active").siblings().removeClass("active");
-      });
-    </script>
+
     <!--     <footer id="footer"></footer>
  -->
   </body>

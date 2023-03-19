@@ -4,7 +4,6 @@ import {
   deleteRecipe as menuDeleteRecipe,
   deleteMenu,
 } from "./menuSaver.js";
-import { pedido } from "./carrito.js";
 
 function createBaseUrl() {
   let params = new URL(document.location).searchParams;
@@ -32,13 +31,6 @@ async function getRecipes(url) {
   return recipes;
 }
 
-export async function cardResult() {
-  let url = createBaseUrl();
-  let recipeSection = document.getElementById("recipeResult");
-  recipeSection.innerHTML = "";
-  let recipe = await getRecipes(url.href);
-  renderRecipe(recipe);
-}
 function renderRecipeButtons(cautionList, ingredientList) {
   const botonesReceta = document.createElement("div");
   const ingredientsBoton = document.createElement("button");
@@ -46,14 +38,14 @@ function renderRecipeButtons(cautionList, ingredientList) {
 
   botonesReceta.setAttribute("class", "buttonContainer");
 
-  ingredientsBoton.setAttribute("class", "fa-solid fa-angle-down");
-  ingredientsBoton.addEventListener("click", () => {
+  /*   ingredientsBoton.setAttribute("class", "fa-solid fa-angle-down");
+   */ ingredientsBoton.addEventListener("click", () => {
     ingredientList.classList.toggle("hidden");
   });
   ingredientsBoton.innerText = "Ingredientes";
 
-  cautionsBoton.setAttribute("class", "fa-solid fa-angle-down");
-  cautionsBoton.addEventListener("click", () => {
+  /*   cautionsBoton.setAttribute("class", "fa-solid fa-angle-down");
+   */ cautionsBoton.addEventListener("click", () => {
     cautionList.classList.toggle("hidden");
   });
   cautionsBoton.innerText = "Alergias";
@@ -66,7 +58,6 @@ function renderRecipeButtons(cautionList, ingredientList) {
 
 function renderRecipe(recipe) {
   const results = document.getElementById("recipeResult");
-  const resultModal = document.getElementById("modalObjects");
   const title = document.createElement("h1"); //esto quiero que sea el nombre de la receta: "Receta de "+nombre;
   const recipeArticle = document.createElement("article");
   const recipeIngredients = document.createElement("article");
@@ -74,10 +65,11 @@ function renderRecipe(recipe) {
   const recipeImage = document.createElement("img");
   const ingredientList = document.createElement("ul");
   const cautionList = document.createElement("ul");
-  const guardar = document.createElement("button");
-  const borrar = document.createElement("button");
+  const ingAndCautBotons = document.createElement("div");
 
   ingredientList.classList.add("hidden");
+  cautionList.classList.add("hidden");
+  ingAndCautBotons.setAttribute("class", "ingAndCautBotons");
 
   recipeArticle.id = recipe.id;
   recipeArticle.setAttribute("data-name", recipe.name);
@@ -95,20 +87,6 @@ function renderRecipe(recipe) {
   recipeIngredients.setAttribute("id", "ingredients");
   recipeArticle.setAttribute("class", "recipeCard");
   recipeCautions.setAttribute("id", "cautions");
-  guardar.setAttribute("id", "botonGuardar");
-  borrar.setAttribute("id", "botonBorrar");
-  guardar.innerText = "Añadir";
-  borrar.innerText = "Quitar del pedido";
-  guardar.addEventListener("click", () => {
-    menuAddRecipe(recipe);
-    pedido();
-    document.getElementById("modal").style.display = "none";
-  });
-  borrar.addEventListener("click", () => {
-    menuDeleteRecipe(recipe);
-    pedido();
-    document.getElementById("modal").style.display = "none";
-  });
 
   recipe.ingredients.forEach((element) => {
     let ingredient = document.createElement("li");
@@ -122,20 +100,25 @@ function renderRecipe(recipe) {
     cautionList.appendChild(caution);
   });
 
-  const titleModal = title.cloneNode(true);
-  const imageModal = recipeImage.cloneNode(true);
-  resultModal.appendChild(titleModal);
-  resultModal.appendChild(imageModal);
   results.appendChild(recipeArticle);
   recipeArticle.appendChild(title);
   recipeArticle.appendChild(recipeImage);
 
   const botonesReceta = renderRecipeButtons(cautionList, ingredientList);
   recipeArticle.appendChild(botonesReceta);
-  resultModal.appendChild(guardar);
-  resultModal.appendChild(borrar);
   recipeIngredients.appendChild(ingredientList);
   recipeCautions.appendChild(cautionList);
-  results.appendChild(recipeIngredients);
-  results.appendChild(recipeCautions);
+  ingAndCautBotons.appendChild(recipeIngredients);
+  ingAndCautBotons.appendChild(recipeCautions);
+  results.appendChild(ingAndCautBotons);
 }
+
+async function cardResult() {
+  let url = createBaseUrl();
+  let recipeSection = document.getElementById("recipeResult");
+  recipeSection.innerHTML = "";
+  let recipe = await getRecipes(url.href);
+  renderRecipe(recipe);
+}
+
+cardResult();

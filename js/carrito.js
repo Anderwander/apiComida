@@ -1,5 +1,6 @@
 import { getRecipes } from "./menuSaver.js";
-export function pedido() {
+
+function pedido() {
   const cart = document.getElementById("sectionAside");
   const recipes = getRecipes();
   console.log(recipes);
@@ -12,3 +13,5 @@ export function pedido() {
   });
   cart.appendChild(cartList);
 }
+
+pedido();

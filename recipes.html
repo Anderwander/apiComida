@@ -7,7 +7,6 @@
     <title>Plato</title>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/modal.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@100;300&display=swap");
     </style>
@@ -17,53 +16,14 @@
       <!-- id:"titulo" -->
       <a href="index.html" id="titulo">Shojin Senshi 精進戦士 </a>
     </h1>
-    <header>
+    <nav>
       <ul class="navbar2">
         <li class="active"><a href="menu.html">Menú</a></li>
-        <li><a href="#">Música Zen</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="reserva.html">Reservas</a></li>
       </ul>
-    </header>
-
-    <div id="modal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <section id="modalObjects"></section>
-      </div>
-    </div>
+    </nav>
     <section id="recipeResult"></section>
-    <button id="myBtn">Añadir al carrito</button>
-    <aside id="sectionAside"></aside>
-    <script type="module" src="js/pedido.js"></script>
-    <script>
-      // Get the modal
-      var modal = document.getElementById("modal");
-
-      // Get the button that opens the modal
-      var btn = document.getElementById("myBtn");
-
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
-
-      // When the user clicks the button, open the modal
-      btn.onclick = function () {
-        modal.style.display = "block";
-      };
-
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function () {
-        modal.style.display = "none";
-      };
-
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      };
-    </script>
-    <!--     <footer id="footer"></footer>
- -->
+    <script type="module" src="js/ingredientesReceta.js"></script>
   </body>
 </html>

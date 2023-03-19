@@ -9,6 +9,7 @@
       @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@100;300&display=swap");
     </style>
     <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/modal.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body id="bodyMenu">
@@ -17,8 +18,8 @@
       <nav id="navMenu">
         <ul class="navbar2">
           <li class="active"><a href="index.html">Inicio</a></li>
-          <li><a href="#">Música Zen</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="carrito.html">Carrito</a></li>
+          <li><a href="reserva.html">Reservas</a></li>
         </ul>
       </nav>
     </section>
@@ -26,6 +27,15 @@
 
     <section id="results"></section>
 
+    <div id="modal" class="modal" style="display: none">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <section id="modalObjects"></section>
+        <button id="botonGuardar">Añadir al pedido</button>
+      </div>
+    </div>
+    <aside id="sectionAside"></aside>
     <script type="module" src="js/index.js"></script>
     <!--     <footer id="footer"></footer>
  -->

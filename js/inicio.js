@@ -1,3 +1,8 @@
+import {
+  addRecipe as menuAddRecipe,
+  deleteRecipe as menuDeleteRecipe,
+} from "./menuSaver.js";
+
 function createBaseUrl() {
   let url = new URL("https://api.edamam.com/api/recipes/v2");
   url.searchParams.set("app_id", "562aebeb");
@@ -50,6 +55,42 @@ async function getRecipes(url) {
   return recipes;
 }
 
+function createModal(recipeText, recipeImgSource, onSave, linkId) {
+  const modal = document.getElementById("modal");
+  const resultModal = document.getElementById("modalObjects");
+  const guardar = document.getElementById("botonGuardar");
+
+  const modalContent = document.createElement("div");
+  const recipeName = document.createElement("h2");
+  const recipeImage = document.createElement("img");
+  const recipeLink = document.createElement("a");
+
+  recipeName.innerText = recipeText;
+  recipeLink.innerText = "Ver receta";
+  recipeImage.setAttribute("src", recipeImgSource);
+  recipeLink.setAttribute("href", "recipes.html?id=" + linkId);
+  modalContent.setAttribute("id", "divWithItems");
+
+  modalContent.appendChild(recipeName);
+  modalContent.appendChild(recipeImage);
+  modalContent.appendChild(recipeLink);
+
+  const handleModalRemoval = () => {
+    modalContent.remove();
+    modal.style.display = "none";
+  };
+
+  guardar.addEventListener("click", () => {
+    onSave();
+    handleModalRemoval();
+  });
+
+  const span = document.getElementsByClassName("close")[0];
+  span.onclick = () => handleModalRemoval();
+
+  resultModal.appendChild(modalContent);
+}
+
 async function renderRecipe(url, nombre) {
   const recipes = await getRecipes(url);
   const results = document.getElementById("results");
@@ -69,17 +110,25 @@ async function renderRecipe(url, nombre) {
       recipeArticle.style.display = "block";
     };
 
-    let recipeLink = document.createElement("a");
-    recipeLink.setAttribute("href", "recipes.html?id=" + hit.id);
-    recipeArticle.classList.add("recipe");
-    recipeName.innerText = hit.name
+    const recipeText = hit.name
       .replace(/\srecipe[s]?/gim, "")
       .replace(/,[s]*/g, ", ");
+
+    recipeArticle.classList.add("recipe");
+    recipeName.innerText = recipeText;
+
     recipeImage.setAttribute("src", hit.image);
 
     food.appendChild(recipeArticle);
-    recipeLink.appendChild(recipeImage);
-    recipeArticle.appendChild(recipeLink);
+
+    recipeImage.onclick = function () {
+      document.getElementById("modal").style.display = "block";
+
+      const handleAddToCart = () => menuAddRecipe(hit);
+      createModal(recipeText, hit.image, handleAddToCart, hit.id);
+    };
+
+    recipeArticle.appendChild(recipeImage);
     recipeArticle.appendChild(recipeName);
   });
 }
