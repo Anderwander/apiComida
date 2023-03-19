@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0"
+    />
+    <title>Menu</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@100;300&display=swap");
+    </style>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body id="bodyMenu">
+    <section id="menuId">
+      <a href="index.html" id="titulo2">Shojin Senshi 精進戦士</a>
+      <nav>
+        <ul class="navbar2">
+          <li class="active"><a href="index.html">Inicio</a></li>
+          <li><a href="carrito.html">Carrito</a></li>
+          <li><a href="reserva.html">Reservas</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section id="loading"></section>
+
+    <section id="results"></section>
+
+    <div id="modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <section id="modalObjects"></section>
+        <button id="botonGuardar">Añadir al pedido</button>
+      </div>
+    </div>
+
+    <script type="module" src="js/index.js"></script>
+  </body>
+</html>
