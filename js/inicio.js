@@ -70,6 +70,7 @@ function createModal(recipeText, recipeImgSource, onSave, linkId) {
   recipeImage.setAttribute("src", recipeImgSource);
   recipeLink.setAttribute("href", "recipes.html?id=" + linkId);
   modalContent.setAttribute("id", "divWithItems");
+  recipeLink.setAttribute("target", "_blank");
 
   modalContent.appendChild(recipeName);
   modalContent.appendChild(recipeImage);

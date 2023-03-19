@@ -66,6 +66,8 @@ function renderRecipe(recipe) {
   const ingredientList = document.createElement("ul");
   const cautionList = document.createElement("ul");
   const ingAndCautBotons = document.createElement("div");
+  ingredientList.setAttribute("id", "ingredientList");
+  cautionList.setAttribute("id", "cautionList");
 
   ingredientList.classList.add("hidden");
   cautionList.classList.add("hidden");

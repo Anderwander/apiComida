@@ -3,14 +3,18 @@ body {
   padding: 32px;
   align-items: center;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 #bodyIndex {
+  padding: 32px;
+  display: flex;
+  height: 100%;
+  width: 100%;
   background-image: url(../media/luxa.org-opacity-changed-matcha.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100vw 100vh;
-  justify-content: center;
 }
 
 #bodyId {
@@ -47,11 +51,14 @@ body {
 }
 
 header {
-  margin-top: 750px;
+  margin-left: 160px;
   position: fixed;
-  gap: 500px;
+  gap: 580px;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 256px;
 }
 
 .hidden {
@@ -119,7 +126,8 @@ header {
 }
 
 .navbar {
-  width: 40%;
+  padding-left: 60px;
+  width: 100%;
   list-style-type: none;
   margin: 0;
   padding: 0px;
@@ -137,7 +145,7 @@ header {
 }
 
 .navbar2 {
-  width: 700px;
+  width: 100%;
   overflow: hidden;
   gap: 125px;
   justify-content: center;
@@ -180,10 +188,10 @@ a {
   text-decoration: none;
 }
 
-#menuPlatos {
+#menuId {
   width: 100%;
-  height: 100%;
 }
+
 #results {
   margin-right: 24px;
   padding: 24px;
@@ -219,6 +227,7 @@ a {
 #recipeResult {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .recipeCard {
@@ -239,7 +248,7 @@ a {
 }
 
 .buttonContainer {
-  gap: 64px;
+  gap: 240px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -263,8 +272,15 @@ a {
   margin-bottom: 100px;
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  gap: 120px;
   margin-left: 48px;
+}
+
+#ingredientList li {
+  margin-bottom: 16px;
+}
+#caution li {
+  margin-bottom: 16px;
 }
 
 #sectionFood {
@@ -291,14 +307,35 @@ img {
   opacity: 0.5;
 }
 
+.plateJoder {
+  font-size: x-large;
+  text-transform: uppercase;
+  color: white;
+  display: flex;
+  gap: 150px;
+  justify-content: space-between;
+}
+
+.plateJoder:not(:last-child) {
+  margin-bottom: 40px;
+}
+.deleteButon {
+  border-radius: 8px;
+  background-color: rgba(241, 130, 130, 0.622);
+  border: none;
+  text-transform: uppercase;
+}
+
 @media screen and (max-width: 450px) {
   #titulo {
     width: 100%;
     padding: 60px;
     padding-right: 45px;
     margin-bottom: 0px;
+    margin-top: 0px;
   }
   .navbar2 {
+    width: 100%;
     display: flex;
     flex-direction: row;
     gap: 0;
@@ -311,16 +348,81 @@ img {
     font-weight: 200;
     transition: 1s;
   }
+  .navbar {
+    align-items: center;
+    margin-right: 35px;
+  }
   header {
+    margin-left: 70px;
     margin-top: 0px;
+    margin-right: 48px;
     gap: 0px;
     position: fixed;
     display: flex;
     flex-direction: column;
   }
+  #titulo2 {
+    width: 65%;
+    padding: 60px;
+    padding-right: 45px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 12px;
+  }
   #titulo3 {
     width: 100%;
     padding-right: 50px;
     margin-right: -370px;
+  }
+
+  #results {
+    width: 100%;
+    margin-right: 0px;
+  }
+  /*  #recipeResults {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+
+  .recipeCard {
+    margin-top: 24px;
+  }
+  .recipeCard > h1 {
+    width: 270px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .recipeCard > img {
+    width: 270px;
+    height: 270px;
+  }
+
+  .buttonContainer {
+    gap: 65px;
+  }
+  .buttonContainer button {
+    font-family: "Poppins", sans-serif;
+    background-color: transparent;
+    border: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: large;
+    font-weight: 200;
+    cursor: pointer;
+    margin-bottom: 50px;
+  }
+
+  .ingAndCautBotons {
+    margin-left: 12px;
+  }
+
+  #sectionAside ul > li {
+    margin-top: 36px;
+  }
+
+  .plateJoder {
+    gap: 60px;
   }
 }
